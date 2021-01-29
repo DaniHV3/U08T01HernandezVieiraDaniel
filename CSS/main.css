@@ -1,0 +1,177 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  background-color: #4646ff;
+  text-align: center;
+  font-size: 23px;
+  min-height: 6%;
+  padding-top: 12px;
+  color: white;
+  font-weight: bold;
+}
+
+.draggable {
+  min-width: 110px;
+  max-height: 30px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px 10px 10px 0;
+  text-align: center;
+  border: 2px solid #11b8ff;
+  border-radius: 5px;
+  background: white;
+  color: #0081b8;
+  font-weight: bold;
+}
+
+.droppable {
+  width: 150px;
+  height: 100px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px;
+  border: 2px solid #11b8ff;
+  border-radius: 5px;
+  text-align: center;
+  color: #0081b8;
+  font-weight: bold;
+}
+
+div[class$="success"] {
+  background: #ffff00;
+}
+
+.overDropable {
+  background-color: red;
+}
+
+.correctorDropable {
+  background-color: #000746;
+}
+
+#mapid {
+  height: 350px;
+  width: 600px;
+}
+
+#contStadistics {
+  padding-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#contDragDrop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+#contMapItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 2px solid cornflowerblue;
+}
+
+#contDrag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  min-height: 150px;
+  border-bottom: 2px dashed cornflowerblue;
+  font-size: 18px;
+}
+
+#contDrop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#contButtonTimer {
+  background-color: #ccdeff;
+  min-height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+#contQuest {
+  min-width: 70%;
+  border: #0081b8;
+}
+#start {
+  max-height: 30px;
+  min-width: 140px;
+  margin-top: 5px;
+  margin-left: 15px;
+  border: 2px solid #11b8ff;
+  background-color: white;
+  font-weight: bold;
+  font-size: 15px;
+  color: #0081b8;
+  border-radius: 8px;
+  outline: none;
+}
+
+#start:hover {
+  background-color: whitesmoke;
+}
+
+#start:active {
+  background-color: silver;
+}
+
+#start:disabled {
+  border-color: #8d8d8d;
+  background-color: #dadada;
+  color: gray;
+}
+
+#timer {
+  margin-top: 9px;
+  font-weight: bold;
+  color: #0081b8;
+  margin-right: 15px;
+}
+
+#piechart {
+  min-width: 550px;
+  min-height: 150px;
+  margin-top: -14px;
+}
+
+rect {
+  margin-bottom: -20px;
+}
+
+#chart_div {
+  min-width: 900px;
+  min-height: 300px;
+  margin-top: -10px;
+}
+/*# sourceMappingURL=main.css.map */

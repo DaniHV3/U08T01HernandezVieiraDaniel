@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: questions.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: questions.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>export const gameData = {
+  countries: [
+    {
+      name: "España",
+      code: "01",
+      cities: [
+        {
+          name: "Madrid",
+          cityCode: "01",
+          location: [40.416861, -3.703694],
+        },
+        {
+          name: "Barcelona",
+          cityCode: "02",
+          location: [41.40751633497433, 2.166275245394729],
+        },
+        {
+          name: "Valencia",
+          cityCode: "03",
+          location: [39.47796176100393, -0.37525270105231295],
+        },
+      ],
+    },
+    {
+      name: "Holanda",
+      code: "02",
+      cities: [
+        {
+          name: "Amsterdam",
+          cityCode: "01",
+          location: [52.376175860546816, 4.891594167657173],
+        },
+        {
+          name: "Eindhoven",
+          cityCode: "02",
+          location: [51.44205412633434, 5.476260089368771],
+        },
+        {
+          name: "Utrech",
+          cityCode: "03",
+          location: [52.09781488629545, 5.103770852989115],
+        },
+      ],
+    },
+    {
+      name: "Bélgica",
+      code: "03",
+      cities: [
+        {
+          name: "Bruselas",
+          cityCode: "01",
+          location: [50.84942702730108, 4.346549111821402],
+        },
+        {
+          name: "Gante",
+          cityCode: "02",
+          location: [51.05452574475724, 3.7227179808364745],
+        },
+        {
+          name: "Brujas",
+          cityCode: "03",
+          location: [51.20710545849288, 3.2226791050325256],
+        },
+      ],
+    },
+    {
+      name: "Italia",
+      code: "04",
+      cities: [
+        {
+          name: "Roma",
+          cityCode: "01",
+          location: [41.90065677345738, 12.474819649115792],
+        },
+        {
+          name: "Venecia",
+          cityCode: "02",
+          location: [45.43844843417041, 12.325616073942145],
+        },
+        {
+          name: "Bari",
+          cityCode: "03",
+          location: [41.12538427082312, 16.870427192774788],
+        },
+      ],
+    },
+    {
+      name: "Francia",
+      code: "05",
+      cities: [
+        {
+          name: "Paris",
+          cityCode: "01",
+          location: [48.861334125665564, 2.344118242841462],
+        },
+        {
+          name: "Nantes",
+          cityCode: "02",
+          location: [47.22059871416357, -1.5497582786226543],
+        },
+        {
+          name: "Grenoble",
+          cityCode: "03",
+          location: [45.189409400839516, 5.726315958097291],
+        },
+      ],
+    },
+    {
+      name: "Inglaterra",
+      code: "06",
+      cities: [
+        {
+          name: "Londres",
+          cityCode: "01",
+          location: [51.50103114975856, -0.12412764052064064],
+        },
+        {
+          name: "New Castle",
+          cityCode: "02",
+          location: [54.97867270905034, -1.6171161843340462],
+        },
+        {
+          name: "Bournemouth",
+          cityCode: "03",
+          location: [50.7190511018102, -1.8805220675395902],
+        },
+      ],
+    },
+    {
+      name: "Croacia",
+      code: "07",
+      cities: [
+        {
+          name: "Split",
+          cityCode: "01",
+          location: [43.50976192369124, 16.43773258851578],
+        },
+        {
+          name: "Zadar",
+          cityCode: "02",
+          location: [44.11973038175231, 15.23132452030295],
+        },
+        {
+          name: "Dubrovnik",
+          cityCode: "03",
+          location: [42.64953066702816, 18.093079247684148],
+        },
+      ],
+    },
+  ],
+};
+
+/**
+ * Obtenemos los paises aleatorios, 5 en este caso
+ */
+export function getCountries(data) {
+  var countries = data.map((e) => e.name); //Nombres únicos
+  var countriesRandom = [];
+  while (countries.length != 2) {
+    var numRandom = getRandomArbitrary(0, countries.length);
+    countriesRandom.push(countries[numRandom]);
+    countries.splice(numRandom, 1);
+  }
+  return countriesRandom;
+}
+
+/**
+ * Obtenemos las ciudades aleatorias de los paises obtenidos
+ * @param {*} randomCountries paises obtenidas
+ */
+export function getCities(data, randomCountries) {
+  var contCountry;
+  var randomCity = [];
+  randomCountries.forEach(function (country) {
+    contCountry = data.filter((e) => e.name == country);
+    var randomCitie =
+      contCountry[0].cities[getRandomArbitrary(0, contCountry[0].cities.length)]
+        .name;
+
+    randomCity.push(randomCitie);
+  });
+  return randomCity;
+}
+
+/**
+ * Buscamos el un objeto a partir de un país
+ * @param {*} nameCountry País
+ */
+export function objectFinder(data, nameCountry) {
+  var contCountry = data.filter((e) => e.name == nameCountry);
+  return contCountry;
+}
+function getRandomArbitrary(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addDataDrawChart">addDataDrawChart</a></li><li><a href="global.html#addDataToChart">addDataToChart</a></li><li><a href="global.html#addQuestElements">addQuestElements</a></li><li><a href="global.html#asignAllowItem">asignAllowItem</a></li><li><a href="global.html#createDropElement">createDropElement</a></li><li><a href="global.html#drawChart">drawChart</a></li><li><a href="global.html#flyTo">flyTo</a></li><li><a href="global.html#getCities">getCities</a></li><li><a href="global.html#getCountries">getCountries</a></li><li><a href="global.html#getRandomArbitrary">getRandomArbitrary</a></li><li><a href="global.html#insertDataDrawBasic">insertDataDrawBasic</a></li><li><a href="global.html#myTimer">myTimer</a></li><li><a href="global.html#nullTest">nullTest</a></li><li><a href="global.html#objectFinder">objectFinder</a></li><li><a href="global.html#startDrawBasic">startDrawBasic</a></li><li><a href="global.html#startDrawChart">startDrawChart</a></li><li><a href="global.html#startItems">startItems</a></li><li><a href="global.html#startMap">startMap</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Fri Jan 29 2021 19:44:30 GMT+0000 (GMT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
